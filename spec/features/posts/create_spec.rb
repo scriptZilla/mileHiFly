@@ -31,13 +31,30 @@ describe "Creating posts" do
     expect(page).to_not have_content("rainbow brown cutt throat")
   end
 
+  it "displays an error when the new post has a title that is too short" do
+    expect(Post.count).to eq(0)
+    visit "/posts"
+    click_link "New Post"
+    expect(page).to have_content("New post")
+    
+    fill_in "Title", with: "b"
+    fill_in "Content", with: "rainbow brown cutt throat"
+    click_button "Create Post"
+
+    expect(page).to have_content("error")
+    expect(Post.count).to eq(0)
+    
+    visit "/posts"
+    expect(page).to_not have_content("rainbow brown cutt throat")
+  end
+
   it "displays an error when the new post has no actual content" do
     expect(Post.count).to eq(0)
     visit "/posts"
     click_link "New Post"
     expect(page).to have_content("New post")
 
-   fill_in "Title", with: "Fly fishin'"
+    fill_in "Title", with: "Fly fishin'"
     fill_in "Content", with: ""
     click_button "Create Post"
     
@@ -46,5 +63,22 @@ describe "Creating posts" do
 
     visit "/posts"
     expect(page).to_not have_content("Fly fishin'")
+  end
+
+  it "displays an error when the new post has too little content" do
+    expect(Post.count).to eq(0)
+    visit "/posts"
+    click_link "New Post"
+    expect(page).to have_content("New post")
+    
+    fill_in "Title", with: "Fly fishin'"
+    fill_in "Content", with: "123456789"
+    click_button "Create Post"
+
+    expect(page).to have_content("error")
+    expect(Post.count).to eq(0)
+    
+    visit "/posts"
+    #expect(page)to_not have_content("1234567890")
   end
 end
