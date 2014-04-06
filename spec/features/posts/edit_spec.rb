@@ -1,7 +1,7 @@
 require "spec_helper"
 
- describe "Editing posts" do
-
+describe "Editing posts" do
+   let!(:post){ Post.create(title: "Streamer", content: "Spring Pattern")}
    def update_post(options={})
      options[:title] ||= "Roll Cast"
      options[:content] ||= "Use for tight trees"
@@ -19,7 +19,6 @@ require "spec_helper"
    end
 
    it "Updates an edited post" do
-     post = Post.create(title: "Streamer", content: "Spring Pattern")
      update_post post: post, 
                  title: "Some New Title",
                  content: "Some New Content"
