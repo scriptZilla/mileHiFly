@@ -1,5 +1,7 @@
 MileHiFly::Application.routes.draw do
 
+  resources :users
+
   root 'posts#index'
 
   resources :posts
