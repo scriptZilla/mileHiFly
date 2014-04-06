@@ -11,3 +11,10 @@
  *= require_self
  *= require_tree .
  */
+
+/* Double-borders around images */
+img {
+  padding:1px;
+  border:1px solid #021a40;
+  background-color:#ff0;
+}

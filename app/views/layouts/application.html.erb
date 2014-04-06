@@ -6,19 +6,12 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-
 <center>
-
 <body>
-
-<ul>
-  <li><%= link_to "Sign Up", new_user_path%></li>
-</ul>
-
+<div>
+  <%= render 'layouts/header'%>
+</div>
 <%= yield %>
-
 </body>
-
 </center>
-
 </html>
