@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mile Hi Fly</title>
+  <title>Mile Hi Fly Fishing</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <center>
 <body>
+
+<div class="background-color">
+ 
 <div>
   <%= render 'layouts/header'%>
 </div>
+
+<div>
+  <img class="img-responsive" src="mileHiFlyHeader.jpg" alt="">
+</div>
+
 <%= yield %>
 </body>
 </center>
+
+<div>
+  <%= render 'layouts/footer'%>
+</div>
+</div>
 </html>
