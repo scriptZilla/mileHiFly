@@ -34,6 +34,9 @@ describe "Editing posts" do
 
    it "Displays an error with no title" do
      update_post post: post, title: ""
+     title = post.title
+     post.reload
+     expect(post.title).to eq(title)
      expect(page).to have_content("error")
    end
 
