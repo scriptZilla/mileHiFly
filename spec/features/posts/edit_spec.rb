@@ -31,4 +31,24 @@ describe "Editing posts" do
      expect(page).to_not have_content("Streamer")
      expect(page).to_not have_content("Spring Pattern")
    end
+
+   it "Displays an error with no title" do
+     update_post post: post, title: ""
+     expect(page).to have_content("error")
+   end
+
+   it "Displays an error when too short a title is passed" do
+     update_post post: post, title: "b"
+     expect(page).to have_content("error")
+   end
+
+   it "Displays an error with no content" do
+     update_post post: post, content: ""
+     expect(page).to have_content("error")
+   end
+
+   it "Displays an error when content section is too brief" do
+     update_post post: post, content: "12345678"
+     expect(page).to have_content("error")
+   end
 end
