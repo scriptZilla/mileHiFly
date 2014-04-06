@@ -5,9 +5,9 @@ describe User do
   {
     first_name: "Ralph",
     last_name: "Wiggum",
-    email: "wiggum@springfield.com"
-#    password: "wuTang123!"
-#    password_confirmation: "wuTang123!"
+    email: "wiggum@springfield.com",
+    password: "cheese$",
+    password_confirmation: "cheese$"
   }
   }
  
@@ -32,7 +32,7 @@ describe User do
     end
 
     it "requires a properly formatted email address, regardless of case." do
-      user.email = "ralphie"
+      user.email = "ralphie wiggum"
       expect(user).to_not be_valid
     end
 
