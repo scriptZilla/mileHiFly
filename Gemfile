@@ -10,6 +10,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'paperclip', '~> 4.1'
+gem 'aws-sdk', '~>1.0'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
