@@ -1,12 +1,13 @@
 MileHiFly::Application.routes.draw do
 
+  root 'posts#index'
+
+  resources :products
+  resources :posts
+
   get "user_sessions/new"
   get "user_sessions/create"
   resources :users
-
-  root 'posts#index'
-
-  resources :posts
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
